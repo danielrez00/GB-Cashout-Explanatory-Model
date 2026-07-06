@@ -5,8 +5,9 @@ Modelling the volatility of GB's electricity imbalance (cash-out) price using 20
 ## Findings
 
 - Net imbalance volume (NIV) is the proximate driver of the cash-out price. Demand and wind forecast error have no separate effect on the price level once NIV is included; they act through the imbalance they create.
-- Price volatility is asymmetric. The largest surprises split cleanly by the sign of the system imbalance. When the system is short, prices run high with unbounded upside through scarcity pricing. When it is long, prices are compressed near the floor. The asymmetry term in the volatility model (GJR-GARCH) captures this bounded-versus-unbounded shape rather than a conventional scarcity effect.
-
+- The price shows a **level** asymmetry: when the system is short, prices run high with unbounded upside through scarcity pricing; when it is long, they are compressed near the floor.
+- The **volatility** asymmetry is separate and points the other way. The GJR-GARCH gamma term is positive and loads on the oversupply side, so for a shock of equal size an oversupply shock raises subsequent conditional volatility more than a scarcity shock. This is representative of long-system fragility near the curtailment and negative-pricing thresholds, not a conventional scarcity effect.
+  
 ## Data
 
 All series are half-hourly settlement-period data for 2024, pulled from the Elexon BMRS API.
